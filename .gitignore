@@ -25,3 +25,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore personal resources directory
+resources
+
+# Ignore compiled class files
+*.class
