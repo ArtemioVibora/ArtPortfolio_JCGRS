@@ -1,0 +1,24 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+>
+    <display-name>Artportfolio</display-name>
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.iacademy.cselec05.controller.MyServlet</servlet-class>
+
+        <multipart-config>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>15728640</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/Artportfolio</url-pattern>
+    </servlet-mapping>
+
+</web-app>
