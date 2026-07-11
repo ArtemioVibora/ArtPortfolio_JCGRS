@@ -31,3 +31,6 @@ resources
 
 # Ignore compiled class files
 *.class
+
+# Ignore WAR files
+*.war
