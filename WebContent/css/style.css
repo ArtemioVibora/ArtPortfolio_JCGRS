@@ -145,3 +145,26 @@ body {
 .artwork-title {
     font-style: italic;
 }
+
+/* =========================================
+   Retro CRT Scanline Animation
+   ========================================= */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+    z-index: 9999;
+    background-size: 100% 4px;
+    pointer-events: none; /* Ensures you can still click buttons underneath it */
+    animation: scanlines 10s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
