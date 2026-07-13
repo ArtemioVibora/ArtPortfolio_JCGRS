@@ -1,7 +1,10 @@
-package com.iacademy.cselec05.controller;
+package com.iacademy.cselec05.userActivities;
 
-import com.iacademy.cselec05.domain.artDomain;
-import com.iacademy.cselec05.repo.artDatabaseRepo;
+
+import com.iacademy.cselec05.util.*;
+import com.iacademy.cselec05.model.*;
+import com.iacademy.cselec05.util.*;
+import com.iacademy.cselec05.factory.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Base64;
-
-import com.iacademy.cselec05.factory.*;
 
 public class MyServlet extends HttpServlet
 {
@@ -32,10 +33,35 @@ public class MyServlet extends HttpServlet
         {
             String artist = request.getParameter("Artistname");
             ArrayList<artDomain> postList = dataRepo.retrievestuff(artist);
-            request.setAttribute("postAspects",postList);
 
+            for(artDomain pictureForShowing: postList)
+            {
+                byte [] toConvert=pictureForShowing.getArtPhoto();
+                pictureForShowing.setConvertedPicture(Base64.getEncoder().encodeToString(toConvert));
+            }
+
+            request.setAttribute("postAspects",postList);
+            request.setAttribute("inset",dataRepo);
+            request.setAttribute("artist",artist);
+            request.getRequestDispatcher("/WEB-INF/views/results.jsp").forward(request,response);
+        }
+        else if("search".equals(jspPage))
+        {
             request.setAttribute("inset",dataRepo);
             request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request,response);
+        }
+        else if("homefeed".equals(jspPage))
+        {
+            ArrayList<artDomain> forHomeFeed = dataRepo.retrieveallstuff();
+
+            for(artDomain pictureForShowing: forHomeFeed)
+            {
+                byte [] toConvert=pictureForShowing.getArtPhoto();
+                pictureForShowing.setConvertedPicture(Base64.getEncoder().encodeToString(toConvert));
+            }
+
+            request.setAttribute("inset",forHomeFeed);
+            request.getRequestDispatcher("/WEB-INF/views/homeFeed.jsp").forward(request,response);
         }
 
 

@@ -1,7 +1,4 @@
-package com.iacademy.cselec05.domain;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
+package com.iacademy.cselec05.model;
 
 public class artDomain
 {

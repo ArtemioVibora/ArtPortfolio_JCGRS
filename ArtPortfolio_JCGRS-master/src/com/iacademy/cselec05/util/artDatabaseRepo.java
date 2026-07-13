@@ -1,16 +1,12 @@
-package com.iacademy.cselec05.repo;
+package com.iacademy.cselec05.util;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
+import com.iacademy.cselec05.model.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-import com.iacademy.cselec05.domain.*;
-
-import javax.imageio.ImageIO;
 
 public class artDatabaseRepo
 {
@@ -51,6 +47,41 @@ public class artDatabaseRepo
             Connection connect = DriverManager.getConnection(url,user,password);
             PreparedStatement insertQuery = connect.prepareStatement(retrieveQuery);
             insertQuery.setString(1,artistName);
+
+            ResultSet result = insertQuery.executeQuery();
+
+            while (result.next())
+            {
+                artDomain retrievePosts = new artDomain();
+                retrievePosts.setArtName(result.getString("artName"));
+                retrievePosts.setArtistName(result.getString("artistName"));
+                retrievePosts.setArtPhoto(result.getBytes("artPicture"));
+                posts.add(retrievePosts);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return posts;
+
+    }
+
+
+    public ArrayList retrieveallstuff()
+    {
+        ArrayList<artDomain> posts = new ArrayList<>();
+
+
+        String retrieveQuery = "SELECT * FROM artist";
+
+        try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Executes the driver code
+            Connection connect = DriverManager.getConnection(url,user,password);
+            PreparedStatement insertQuery = connect.prepareStatement(retrieveQuery);
+
 
             ResultSet result = insertQuery.executeQuery();
 
