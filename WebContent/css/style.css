@@ -1,8 +1,9 @@
 /* =========================================
-   1. COLOR PALETTES (THE THREE MODES)
+   Color Palette: Psychedelic Bold
+   From: Practical Color Combinations by. Naomi Kuno
    ========================================= */
 
-/* Mode 1: Light Psychedelic (Default) */
+/* Mode 1: Light Mode Psychedelic */
 :root {
     --bg-main: #FCE817;       /* Happiest Yellow */
     --window-bg: #E10098;     /* Liquid Pink */
@@ -15,7 +16,7 @@
     --btn-text: #240046;
 }
 
-/* Mode 2: Dark Psychedelic */
+/* Mode 2: Dark Mode Psychedelic */
 [data-theme="dark"] {
     --bg-main: #121212;       /* Dark Night */
     --window-bg: #240046;     /* Bold Violet */
@@ -42,7 +43,7 @@
 }
 
 /* =========================================
-   2. GLOBAL SETTINGS & RETRO FONT
+   Aestehtic Retro Fonts
    ========================================= */
 body {
     background-color: var(--bg-main);
@@ -53,7 +54,7 @@ body {
 }
 
 /* =========================================
-   3. WINDOWS 95 UI ELEMENTS
+   Windows 95 like elements
    ========================================= */
 /* The classic 3D pop-out box effect */
 .win95-box {
@@ -92,7 +93,7 @@ body {
 }
 
 /* =========================================
-   4. INSTAGRAM-STYLE LAYOUT
+   Instagram-like feed aesthetic style combined with Windows 95 elements
    ========================================= */
 /* Sticky top header (from your PDF Pages 3-5) */
 .nav-header {
@@ -114,7 +115,7 @@ body {
 }
 
 /* =========================================
-   5. THE "VIEW ARTIST" ARTWORK COMPONENT
+   View Artist work component styling
    ========================================= */
 /* Based on your specific requirement for the artist's work */
 .artwork-card {
