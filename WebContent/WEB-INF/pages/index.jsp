@@ -1,11 +1,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-
-
 <body>
 
     <c:url var = "Insert" value = "/Artportfolio">
@@ -17,7 +14,7 @@
             <c:param name = "page" value = "search"/>
         </c:url>
 
-            <c:url var = "home" value = "/Artportfolio">
+    <c:url var = "home" value = "/Artportfolio">
                 <c:param name = "page" value = "homefeed"/>
             </c:url>
 

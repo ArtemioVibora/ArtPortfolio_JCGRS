@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Dashboard</title>
-    
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
     <script src="${pageContext.request.contextPath}/js/script.js"></script>
 </head>
@@ -37,7 +36,7 @@
                 <span>X</span>
             </div>
             
-            <img src="https://via.placeholder.com/600x400" alt="Placeholder Art">
+            <img src="https://thumbs.dreamstime.com/b/cute-girl-long-pink-hair-hair-coloring-beautiful-woman-pink-background-white-dress-colored-hair-perfect-cute-girl-195568566.jpg" alt="Placeholder Art">
             
             <div class="artwork-info">
                 <div class="artist-name">Artist: @SambaTheGreat</div>

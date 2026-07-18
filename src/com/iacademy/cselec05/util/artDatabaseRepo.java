@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class artDatabaseRepo
 {
+    // TODO: will change this to a local database
     private String url = "jdbc:mysql://172.104.165.179:3306/cselec05";
     private String user = "student";
     private String password = "iacademy";
@@ -23,7 +24,7 @@ public class artDatabaseRepo
             Class.forName("com.mysql.cj.jdbc.Driver"); // Executes the driver code
             Connection connect = DriverManager.getConnection(url,user,password);
             PreparedStatement prepare = connect.prepareStatement(insertQuery);
-            prepare.setBytes(1,insertArtPiece.getArtPhoto());
+            prepare.setBytes(1,insertArtPiece.getArtPhoto()); // we need table column bytes for our local database
             prepare.setString(2,insertArtPiece.getArtistName());
             prepare.setString(3,insertArtPiece.getArtName());
             prepare.executeUpdate();

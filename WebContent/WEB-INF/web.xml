@@ -19,9 +19,14 @@
         <servlet-name>LandingServlet</servlet-name>
         <servlet-class>com.iacademy.cselec05.servlet.views.LandingServlet</servlet-class>
     </servlet>
+    <!-- changed "/" to "/landing" -->
+    <!-- Changed it to /landing - Juan Amado Cleto
+        Issues: if it is "/" - style.css will redirected and thus will not reflect on
+        the pages thus we need to change it to landing page
+    -->
     <servlet-mapping>
         <servlet-name>LandingServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/landing</url-pattern>
     </servlet-mapping>
 
     <servlet>
