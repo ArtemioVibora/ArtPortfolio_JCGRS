@@ -40,7 +40,8 @@ public class AuthFilter implements Filter {
             return;
         }
 
-        boolean isPublicPath = uri.equals("/") || uri.equals("/login") || uri.equals("/register");
+        // Added /landing to access the landing page
+        boolean isPublicPath = uri.equals("/") || uri.equals("/login") || uri.equals("/register") || uri.equals("/landing");
 
         if (isLoggedIn) {
             // Already logged in - prevent access to login/register/landing

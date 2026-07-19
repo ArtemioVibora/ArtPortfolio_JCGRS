@@ -13,6 +13,7 @@
     <div class="nav-header win95-box">
         <h2>HOME FEED</h2>
         <div style="margin-left: auto;">
+            <a href="${pageContext.request.contextPath}/profile/user-activity"><button class="win95-button" type="button">User Activity</button></a>
             <a href="${pageContext.request.contextPath}/profile"><button class="win95-button" type="button">Profile</button></a>
             <a href="${pageContext.request.contextPath}/settings"><button class="win95-button" type="button">Settings</button></a>
             <a href="${pageContext.request.contextPath}/logout"><button class="win95-button" type="button">Logout</button></a>

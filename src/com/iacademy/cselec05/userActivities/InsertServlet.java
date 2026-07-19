@@ -1,9 +1,12 @@
-package com.iacademy.cselec05.userActivities;
+// COMMENTED THIS OUT BECAUSE WE ARE GOING TO SEPERATE THIS INTO DIFFERENT SERVLET
+// DO NOT --- I REPREAT -- DO NOT UNCOMMENT BECAUSE IT IS GOING TO CRASH THE WHOLE PROGRAM
+
+
+/*package com.iacademy.cselec05.userActivities;
 
 
 import com.iacademy.cselec05.util.*;
 import com.iacademy.cselec05.model.*;
-import com.iacademy.cselec05.util.*;
 import com.iacademy.cselec05.factory.*;
 
 import javax.servlet.ServletException;
@@ -17,17 +20,31 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Base64;
 
-public class MyServlet extends HttpServlet
+// OKAY, this is not clean -- Juan Amado Cleto
+// why? Okay I appreciate the effort but this servlet is doing everything all at once
+// We don't want that.
+// To solve this -- we are going to rename InsertServlet into user activity servlet
+// And have all the options there.
+// So for the developer or developers -- do not be afraid to have multiple servlets
+// Because 1. Java EE is obsolete -- I mean I prefer express js because there is no like
+// ritual war file and XAMPP -- and that's an objective statement.
+// This is a big no no -- because the servlet is doing everything everywhere at the same time.
+// thus when running on XAMPP -- the pages will not render.
+// What I am going to do is recycle this with only one purpose and that is insert only, no bull
+
+public class InsertServlet extends HttpServlet
 {
     @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         artDatabaseRepo dataRepo = databaseFactory.newOne();
         String jspPage = request.getParameter("page");
+
+
         if("insert".equals(jspPage))
         {
             request.setAttribute("inset",dataRepo);
-            request.getRequestDispatcher("/WEB-INF/views/insertPicture.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/insertPicture.jsp").forward(request,response);
         }
         else if ("retrieve".equals(jspPage))
         {
@@ -43,12 +60,12 @@ public class MyServlet extends HttpServlet
             request.setAttribute("postAspects",postList);
             request.setAttribute("inset",dataRepo);
             request.setAttribute("artist",artist);
-            request.getRequestDispatcher("/WEB-INF/views/results.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/results.jsp").forward(request,response);
         }
         else if("search".equals(jspPage))
         {
             request.setAttribute("inset",dataRepo);
-            request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/search.jsp").forward(request,response);
         }
         else if("homefeed".equals(jspPage))
         {
@@ -61,7 +78,7 @@ public class MyServlet extends HttpServlet
             }
 
             request.setAttribute("inset",forHomeFeed);
-            request.getRequestDispatcher("/WEB-INF/views/homeFeed.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/homeFeed.jsp").forward(request,response);
         }
 
 
@@ -116,3 +133,4 @@ public class MyServlet extends HttpServlet
         }
     }
 }
+*/

@@ -2,7 +2,9 @@
 <html>
 
 <head>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 
@@ -18,10 +20,11 @@
         <label>Art Piece Name: </label>
         <input type = "text" name ="artName"/>
         <label>Insert Picture Of Art Piece: </label>
-        <input type = "file" name ="Picture"/>
-        <input hidden type = "text" name ="unusualAction" value = "picture"/>
+        <input type="file" name="Picture"/>
+        <input hidden type = "text" name ="unusualAction" value ="picture"/>
         <button type = "submit">Submit Details</button>
     </form>
+    <hr>
 </body>
 
 

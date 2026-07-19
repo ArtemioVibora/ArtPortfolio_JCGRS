@@ -1,6 +1,7 @@
 package com.iacademy.cselec05.model;
 
-public class artDomain
+// Again --- class name should be pascal case.
+public class ArtDomain
 {
     private byte[] artPhoto;
     private String artistName;

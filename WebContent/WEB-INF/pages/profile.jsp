@@ -15,6 +15,7 @@
     <div class="nav-header win95-box">
         <h2>USER PROFILE</h2>
         <div style="margin-left: auto;">
+            <a href="${pageContext.request.contextPath}/profile/user-activity"><button class="win95-button" type="button">User Activity</button></a>
             <a href="${pageContext.request.contextPath}/home"><button class="win95-button" type="button">Back to Home</button></a>
         </div>
     </div>

@@ -10,13 +10,13 @@
     </c:url>
 
 
-        <c:url var = "search" value = "/Artportfolio">
-            <c:param name = "page" value = "search"/>
-        </c:url>
+    <c:url var = "search" value = "/Artportfolio">
+        <c:param name = "page" value = "search"/>
+    </c:url>
 
     <c:url var = "home" value = "/Artportfolio">
-                <c:param name = "page" value = "homefeed"/>
-            </c:url>
+        <c:param name = "page" value = "homefeed"/>
+    </c:url>
 
     <a href = "${Insert}">Photo Submission</a>
     <a href = "${search}">Artist Viewing</a>
