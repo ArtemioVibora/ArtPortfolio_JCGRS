@@ -1,3 +1,9 @@
+<!-- I am just going to leave a comment -- Juan Amado Cleto
+    We dont need this homeFeed -- we already have home
+    But -- and this is a big butt -- I am going to reuse the foreach loop and
+    transfer it to the home.jsp (the actual homefeed)
+
+-->
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html>
 
@@ -11,7 +17,7 @@
         <c:param name = "page" value = "homefeed"/>
     </c:url>
 
-    <c:forEach var = "Feed" items = "${inset}">
+    <c:forEach var = "Feed" items = "${insert}">
         <p><img src = "data:image/png;base64,${Feed.convertedPicture}"></p>
         <p>${Feed.artName}</p>
         <p>${Feed.artistName}</p>

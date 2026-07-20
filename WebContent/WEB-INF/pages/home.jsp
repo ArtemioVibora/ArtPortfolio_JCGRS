@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %> <!-- Include this next time for jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,15 +37,42 @@
                 <span>Artwork_Viewer.exe</span>
                 <span>X</span>
             </div>
-            
+
+            <!-- dummy artwork I got from the internet -->
             <img src="https://thumbs.dreamstime.com/b/cute-girl-long-pink-hair-hair-coloring-beautiful-woman-pink-background-white-dress-colored-hair-perfect-cute-girl-195568566.jpg" alt="Placeholder Art">
-            
+
+            <!-- dummy artwork info  -->
             <div class="artwork-info">
                 <div class="artist-name">Artist: @SambaTheGreat</div>
                 <div class="artwork-title">Title: "Retro Dreams"</div>
                 <p>Posted: Oct 24, 1995</p>
             </div>
         </div>
+        <!--
+        <c:forEach var="Feed" items = "${insert}">
+            <img src = "data:image/png;base64,${Feed.convertedPicture}">
+            <p>${Feed.artName}</p>
+            <p>${Feed.artistName}</p>
+        </c:forEach> -->
+
+        <c:forEach var="Feed" items = "${insert}">
+        <div class="win95-box artwork-card">
+            <div class="win95-header">
+                <span>Artwork_Viewer.exe</span>
+                <span>X</span>
+            </div>
+
+            <!-- dummy artwork I got from the internet -->
+            <img src = "data:image/png;base64,${Feed.convertedPicture}">
+
+            <!-- dummy artwork info  -->
+            <div class="artwork-info">
+                <div class="artist-name">Artist: @${Feed.artistName}</div>
+                <div class="artwork-title">Title: "${Feed.artName}"</div>
+                <p>Posted: Oct 24, 1995</p>
+            </div>
+        </div>
+        </c:forEach>
 
     </div>
 

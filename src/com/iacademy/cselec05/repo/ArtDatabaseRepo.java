@@ -117,7 +117,6 @@ public class ArtDatabaseRepo
 
         try
         {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Executes the driver code
             Connection connect = DBConnection.getConnection();
             PreparedStatement insertQuery = connect.prepareStatement(retrieveQuery);
 
@@ -129,7 +128,7 @@ public class ArtDatabaseRepo
                 ArtDomain retrievePosts = new ArtDomain();
                 retrievePosts.setArtName(result.getString("art_name"));
                 retrievePosts.setArtistName(result.getString("artist_name"));
-                retrievePosts.setArtPhoto(result.getBytes("art_picture"));
+                retrievePosts.setArtPhoto(result.getBytes("art_photo")); // ANOTHER PROBLEM SOLVED
                 posts.add(retrievePosts);
             }
         }

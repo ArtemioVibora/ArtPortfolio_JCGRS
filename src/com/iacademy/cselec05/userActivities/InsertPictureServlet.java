@@ -5,6 +5,7 @@ import com.iacademy.cselec05.model.ArtDomain;
 import com.iacademy.cselec05.repo.ArtDatabaseRepo;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +25,10 @@ import java.io.InputStream;
         To be fair for the developer, the logic is already there -- I am going to reuse his logic particularly the inserting
         one and let's see what can be done.
  */
+
+@MultipartConfig
 public class InsertPictureServlet extends HttpServlet {
-    
-    private static final String UPLOAD_DIR = "uploads";
+
 
     // like in the delivery activity from sir's class we need this object factory to produce well objects
     // this will have a part in doPost
@@ -49,7 +51,6 @@ public class InsertPictureServlet extends HttpServlet {
     // TODO: Investigate what unusualAction does -- REMOVED because we don't need it anymore
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String artPortfolioPath = request.getServletContext().getRealPath("");
         
         String artistName = request.getParameter("artist"); // The artist name
         String artPieceName = request.getParameter("artName"); // The art piece name
@@ -62,15 +63,16 @@ public class InsertPictureServlet extends HttpServlet {
 
         ArtDatabaseRepo dataRepo = objectFactory.getArtRepistory();
         dataRepo.uploadArt(domain);
-        request.setAttribute("insert",dataRepo);
-
         // This will be in the homefeed
-        request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request,response);
 
     }
 
     // Added this because it is giving me a warning -- I dont like warnings
-    // It is simply a helper function
+    // It is simply a helper function to get the bytes
+    // And because of this -- good news we dont need 'VAGUE' statements like file uploads -- where is the uploads so yeah
+    // Anyways this simplifies things because we only need the database and that's it.
+    // And luckily, SQL can stores thousands or even millions from my experience
     private static byte[] getBytes(Part Picture) throws IOException {
         InputStream processedPicture = Picture.getInputStream(); // Gets the byte version of the picture
 

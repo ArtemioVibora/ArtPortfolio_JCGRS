@@ -10,9 +10,10 @@
 
 <body>
 
+    <!--
     <c:url var = "Insert" value = "/Artportfolio">
         <c:param name = "page" value = "insert"/>
-    </c:url>
+    </c:url> -->
     <h4>Art Details And Work</h4>
     <form method = "post" enctype="multipart/form-data">
         <label>Artist Name: </label>
