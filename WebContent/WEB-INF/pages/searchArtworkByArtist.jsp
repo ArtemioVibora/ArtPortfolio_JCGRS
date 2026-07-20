@@ -7,13 +7,14 @@
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
     <form  method = "post">
         <label>Type In Artist Name: </label>
-        <input type = "text" name = "Artistname" required/>
+        <input type = "text" name = "artistName" required/>
         <button type = "submit" id = "getFromDatabase">Submit</button>
     </form>
 

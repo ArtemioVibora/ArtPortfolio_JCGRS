@@ -60,7 +60,7 @@ public class InsertServlet extends HttpServlet
             request.setAttribute("postAspects",postList);
             request.setAttribute("inset",dataRepo);
             request.setAttribute("artist",artist);
-            request.getRequestDispatcher("/WEB-INF/pages/results.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/resultsArtworkByArtist.jsp").forward(request,response);
         }
         else if("search".equals(jspPage))
         {
