@@ -138,12 +138,12 @@
 
     <!-- Result Artworks by Artist Servlet -->
     <servlet>
-        <servlet-name>SearchArtworkByArtistServlet</servlet-name>
-        <servlet-class>com.iacademy.cselec05.userActivities.SearchArtworkByArtistServlet</servlet-class>
+        <servlet-name>ResultArtworkByArtistServlet</servlet-name>
+        <servlet-class>com.iacademy.cselec05.userActivities.ResultArtworkByArtistServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SearchArtworkByArtistServlet</servlet-name>
-        <url-pattern>/profile/user-activity/search-artwork-by-artist</url-pattern>
+        <servlet-name>ResultArtworkByArtistServlet</servlet-name>
+        <url-pattern>/profile/user-activity/result-artwork-by-artist</url-pattern>
     </servlet-mapping>
 
     <!-- deprecated Servlet -->

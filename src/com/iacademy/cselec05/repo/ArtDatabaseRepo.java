@@ -92,7 +92,7 @@ public class ArtDatabaseRepo
                 ArtDomain retrievePosts = new ArtDomain();
                 retrievePosts.setArtName(result.getString("art_name"));
                 retrievePosts.setArtistName(result.getString("artist_name"));
-                retrievePosts.setArtPhoto(result.getBytes("art_picture"));
+                retrievePosts.setArtPhoto(result.getBytes("art_photo"));
                 tempPost.add(retrievePosts);
             }
         }

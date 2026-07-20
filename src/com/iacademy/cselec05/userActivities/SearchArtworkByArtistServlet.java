@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 /*
@@ -39,7 +40,15 @@ public class SearchArtworkByArtistServlet extends HttpServlet {
 
         String artistName = req.getParameter("artistName");
         List<ArtDomain> artDomainList = databaseRepo.retrieveDataFromArtist(artistName);
-        req.setAttribute("artworkByArtistList", artDomainList);
-        req.getRequestDispatcher("/WEB-INF/pages/resultArtworkByArtist.jsp").forward(req,resp);
+
+        // Converts the image
+        for(ArtDomain pictureForShowing: artDomainList)
+        {
+            byte [] toConvert = pictureForShowing.getArtPhoto();
+            pictureForShowing.setConvertedPicture(Base64.getEncoder().encodeToString(toConvert));
+        }
+
+        req.getSession().setAttribute("artworkByArtistList", artDomainList);
+        resp.sendRedirect(req.getContextPath() + "/profile/user-activity/result-artwork-by-artist");
     }
 }
