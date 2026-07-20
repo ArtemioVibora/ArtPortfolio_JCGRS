@@ -18,6 +18,8 @@ import java.util.List;
 * 5. Always have the class name as pascal case -- it goes against convention to have class name into camel case. Hence
 * I renamed it to ArtDatabaseRepo -- always remember a class name should always be in pascal case -- not camel case.
 * 6. I placed it inside package because it should not be inside util package
+* 7. This is fundamentally better -- also for more improvement have a try catch for each query. This will help if any error
+* is encountered will have the code exit gracefully eventhough I think that's cheesy not gonna lie
 * */
 public class ArtDatabaseRepo
 {
@@ -28,12 +30,6 @@ public class ArtDatabaseRepo
     private String password = "iacademy";
     */
 
-    // Okay another mistake this should not be inside a function -- so I transferred it
-    // Alright -- pet peeves aside the reason why we should have the list outside functions is because
-    // we are going to use only one repository sooo basically we need to have this outside because if it is
-    // inside a function we must keep in mind of scope -- if we were to place inside a function it is limited locally
-    // not globally.
-    private final List<ArtDomain> posts = new ArrayList<>();
 
     // What this function does is insert Art Piece using a parameter insertArtPiece of class ArtDomain
     // changed to uploadArt because this is what we are essentially doing 'uploading' and it is more meaningful
@@ -80,7 +76,6 @@ public class ArtDatabaseRepo
 
         try
         {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Executes the driver code
             Connection connect = DBConnection.getConnection();
             PreparedStatement insertQuery = connect.prepareStatement(retrieveQuery);
             insertQuery.setString(1,artistName);
@@ -115,6 +110,9 @@ public class ArtDatabaseRepo
     {
         String retrieveQuery = "SELECT * FROM artist";
 
+        // I put it here because it is going to duplicate things if user refreshes page
+        List<ArtDomain> posts = new ArrayList<>();
+
         try
         {
             Connection connect = DBConnection.getConnection();
@@ -136,6 +134,6 @@ public class ArtDatabaseRepo
         {
             e.printStackTrace();
         }
-        return this.posts;
+        return posts;
     }
 }
