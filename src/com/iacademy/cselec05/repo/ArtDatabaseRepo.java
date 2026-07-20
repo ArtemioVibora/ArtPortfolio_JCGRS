@@ -111,7 +111,7 @@ public class ArtDatabaseRepo
     // change the name to show all art data
     // Okay named it to retrieveAllData because it sounds more fitting
     // So what this function is that retrieves all data from the table artist -- okay sounds good
-    public List<ArtDomain> retrieveAllData()
+    public List<ArtDomain> getPosts()
     {
         String retrieveQuery = "SELECT * FROM artist";
 
@@ -137,6 +137,6 @@ public class ArtDatabaseRepo
         {
             e.printStackTrace();
         }
-        return posts;
+        return this.posts;
     }
 }

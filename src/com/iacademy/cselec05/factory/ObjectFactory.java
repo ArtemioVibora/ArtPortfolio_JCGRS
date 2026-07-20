@@ -15,7 +15,7 @@ public class ObjectFactory
     // this is because we should have repositories for Users and for Artists
     private static final ArtDatabaseRepo artDatabaseRepo = new ArtDatabaseRepo();
 
-    // Even if it is not static we already have the
+    // Even if it is not static we already have the repository here -- we are not going to use the art database repo
     public ArtDatabaseRepo getArtRepistory()
     {
         return artDatabaseRepo;

@@ -1,10 +1,17 @@
 package com.iacademy.cselec05.userActivities;
 
+import com.iacademy.cselec05.factory.ObjectFactory;
+import com.iacademy.cselec05.model.ArtDomain;
+import com.iacademy.cselec05.repo.ArtDatabaseRepo;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /*
         New Insert Picture Servlet -- Juan Amado Cleto
@@ -18,6 +25,12 @@ import java.io.IOException;
         one and let's see what can be done.
  */
 public class InsertPictureServlet extends HttpServlet {
+    
+    private static final String UPLOAD_DIR = "uploads";
+
+    // like in the delivery activity from sir's class we need this object factory to produce well objects
+    // this will have a part in doPost
+    public static ObjectFactory objectFactory = new ObjectFactory();
 
     // get the 'predestined elements and render it through doGet
     @Override
@@ -33,11 +46,43 @@ public class InsertPictureServlet extends HttpServlet {
     // because somebody will maintain our code, or do keep in mind of other developers
     // not going insane. Proper naming conventions = what this thing (variable or function or class) does.
     // I will change the unusualAction into something more meaningful
-    // TODO: Investigate what unusualAction does
+    // TODO: Investigate what unusualAction does -- REMOVED because we don't need it anymore
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String artPortfolioPath = request.getServletContext().getRealPath("");
+        
         String artistName = request.getParameter("artist"); // The artist name
         String artPieceName = request.getParameter("artName"); // The art piece name
-        String picture = request.getParameter("unusualAction"); // TODO: Rename unusual Action
+        ArtDomain domain = new ArtDomain();
+        Part Picture = request.getPart("Picture"); // Gets the inputed picture in its raw version
+        byte[] finalPhoto = getBytes(Picture);
+        domain.setArtPhoto(finalPhoto);
+        domain.setArtName(artPieceName);
+        domain.setArtistName(artistName);
+
+        ArtDatabaseRepo dataRepo = objectFactory.getArtRepistory();
+        dataRepo.uploadArt(domain);
+        request.setAttribute("insert",dataRepo);
+
+        // This will be in the homefeed
+        request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request,response);
+
+    }
+
+    // Added this because it is giving me a warning -- I dont like warnings
+    // It is simply a helper function
+    private static byte[] getBytes(Part Picture) throws IOException {
+        InputStream processedPicture = Picture.getInputStream(); // Gets the byte version of the picture
+
+        ByteArrayOutputStream getThePicture = new ByteArrayOutputStream();
+        byte [] chosenPicture = new byte[9000];
+        int readByte = 0;
+        while((readByte = processedPicture.read(chosenPicture,0,chosenPicture.length)) !=-1)
+        {
+            getThePicture.write(chosenPicture,0,readByte);
+        }// This entire sequence from ByteArrayOutputStream to the while loop is convreting said picture bytes into bytes that can fit in a array
+
+        byte [] finalPhoto = getThePicture.toByteArray(); // Puts picture bytes into an array
+        return finalPhoto;
     }
 }

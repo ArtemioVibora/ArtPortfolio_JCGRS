@@ -21,7 +21,10 @@
         <input type = "text" name ="artName"/>
         <label>Insert Picture Of Art Piece: </label>
         <input type="file" name="Picture"/>
-        <input hidden type = "text" name ="unusualAction" value ="picture"/>
+        <!-- Okay so we are removing unusual action
+            1. We dont need it anymore since we are splitting the original MyServlet now InsertServlet into many pieces
+        -->
+        <!--<input hidden type = "text" name ="unusualAction" value ="picture"/>-->
         <button type = "submit">Submit Details</button>
     </form>
     <hr>
