@@ -23,7 +23,10 @@
                     <a href="${pageContext.request.contextPath}/profile/user-activity/upload-art">Upload Your Work</a>
                 </li>
                 <li>
-                    <a>See other People's works</a>
+                    <a href="${pageContext.request.contextPath}/profile/user-activity/search-artwork-by-artist">See other People's works</a>
+                </li>
+                <li>
+                    <a>Search Artist</a>
                 </li>
                 <li>
                     <a>Home feed</a>

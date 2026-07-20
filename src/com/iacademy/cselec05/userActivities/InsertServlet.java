@@ -65,7 +65,7 @@ public class InsertServlet extends HttpServlet
         else if("search".equals(jspPage))
         {
             request.setAttribute("inset",dataRepo);
-            request.getRequestDispatcher("/WEB-INF/pages/search.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/pages/searchArtworkByArtist.jsp").forward(request,response);
         }
         else if("homefeed".equals(jspPage))
         {
@@ -129,7 +129,7 @@ public class InsertServlet extends HttpServlet
                 pictureForShowing.setConvertedPicture(Base64.getEncoder().encodeToString(toConvert));
             }
             request.setAttribute("postAspects",postList);
-            request.getRequestDispatcher("/WEB-INF/views/search.jsp").forward(request,response);
+            request.getRequestDispatcher("/WEB-INF/views/searchArtworkByArtist.jsp").forward(request,response);
         }
     }
 }

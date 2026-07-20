@@ -126,6 +126,16 @@
         <url-pattern>/profile/user-activity/upload-art</url-pattern>
     </servlet-mapping>
 
+    <!-- Search Servlet -->
+    <servlet>
+        <servlet-name>SearchArtworkByArtistServlet</servlet-name>
+        <servlet-class>com.iacademy.cselec05.userActivities.SearchArtworkByArtistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchArtworkByArtistServlet</servlet-name>
+        <url-pattern>/profile/user-activity/search-artwork-by-artist</url-pattern>
+    </servlet-mapping>
+
     <!-- deprecated Servlet -->
     <servlet>
         <servlet-name>InsertServlet</servlet-name>
